@@ -2,6 +2,7 @@ package com.example.ilenguageapi.unittest;
 
 import com.example.ilenguageapi.domain.model.Session;
 import com.example.ilenguageapi.domain.repository.SessionRepository;
+import com.example.ilenguageapi.domain.repository.UserRepository;
 import com.example.ilenguageapi.domain.service.SessionService;
 import com.example.ilenguageapi.exception.ResourceNotFoundException;
 import com.example.ilenguageapi.service.SessionServiceImpl;
@@ -26,6 +27,8 @@ public class SessionServiceImplTest {
 
     @MockBean
     private SessionRepository sessionRepository;
+    @MockBean
+    private UserRepository userRepository;
 
     @Autowired
     private SessionService sessionService;

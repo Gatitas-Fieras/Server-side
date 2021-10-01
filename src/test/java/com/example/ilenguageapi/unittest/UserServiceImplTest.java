@@ -4,10 +4,7 @@ import com.example.ilenguageapi.domain.model.LanguageOfInterest;
 import com.example.ilenguageapi.domain.model.Role;
 import com.example.ilenguageapi.domain.model.TopicOfInterest;
 import com.example.ilenguageapi.domain.model.User;
-import com.example.ilenguageapi.domain.repository.LanguageOfInterestRespository;
-import com.example.ilenguageapi.domain.repository.RoleRepository;
-import com.example.ilenguageapi.domain.repository.TopicOfInterestRepository;
-import com.example.ilenguageapi.domain.repository.UserRepository;
+import com.example.ilenguageapi.domain.repository.*;
 import com.example.ilenguageapi.domain.service.UserService;
 import com.example.ilenguageapi.exception.ResourceNotFoundException;
 import com.example.ilenguageapi.service.UserServiceImpl;
@@ -43,6 +40,13 @@ public class UserServiceImplTest {
 
     @MockBean
     private RoleRepository roleRepository;
+
+    @MockBean
+    private SessionRepository sessionRepository;
+    @MockBean
+    private BadgetRepository badgetRepository;
+    @MockBean
+    private CommentRepository commentRepository;
 
 
     @MockBean
@@ -88,6 +92,7 @@ public class UserServiceImplTest {
         listOfUsers.add(new User().setTopicOfInterests(new ArrayList<>()).setLanguageOfInterests(new ArrayList<>()).addTopicOfInterest(topic2).addLanguageOfInterest(language2));
         listOfUsers.add(new User().setTopicOfInterests(new ArrayList<>()).setLanguageOfInterests(new ArrayList<>()).addLanguageOfInterest(language1).addLanguageOfInterest(language2));
         listOfUsers.add(new User().setTopicOfInterests(new ArrayList<>()).setLanguageOfInterests(new ArrayList<>()).addTopicOfInterest(topic1).addLanguageOfInterest(language1));
+
         when(topicOfInterestRepository.findById(1L)).thenReturn(Optional.of(topic1));
         when(languageOfInterestRespository.findById(1L)).thenReturn(Optional.of(language1));
         when(userRepository.findAll(paginacion)).thenReturn(new PageImpl<>(listOfUsers,paginacion,listOfUsers.size()));

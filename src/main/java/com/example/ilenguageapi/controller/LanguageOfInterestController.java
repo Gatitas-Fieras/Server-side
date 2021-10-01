@@ -38,6 +38,9 @@ public class LanguageOfInterestController {
     }
 
     @Operation(summary = "Add language", description = "Create new language", tags = {"languages"})
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Language created", content = @Content(mediaType = "application/json"))
+    })
     @PostMapping("/languages")
     public LanguageOfInterestResource createLanguage(@Valid @RequestBody SaveLanguageOfInterestResource resource){
         LanguageOfInterest language = convertToEntity(resource);
