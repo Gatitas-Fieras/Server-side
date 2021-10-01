@@ -19,7 +19,7 @@ public class SubscriptionDetailStepDefinition extends SpringIntegrationTest {
 
     @When("the client searches for a subscription {int}")
     public void theClientSearchesForASubscription(int arg0) throws Throwable{
-        executeGet("http://localhost:8080/subscriptions/1");
+        executeGet("http://localhost:8090/subscriptions/1");
     }
 
     @Then("the client receives subscription {int} details")
