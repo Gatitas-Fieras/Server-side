@@ -2,6 +2,7 @@ package com.example.ilenguageapi.cucumber.seleniumConfig;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import static java.lang.Thread.sleep;
 
@@ -13,9 +14,13 @@ public class SeleniumWebDriverConfig {
     public SeleniumWebDriverConfig() {
         String PATH_DRIVER = System.getProperty("user.dir") + "\\driver\\windows\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", PATH_DRIVER);
+        driver = new ChromeDriver();
+        driver.get(API_URL);
+        driver.manage().window().fullscreen();
     }
 
     public void logInAsUser() throws InterruptedException {
+        sleep(1000);
         driver.findElement(By.xpath("/html/body/app-root/div/mat-toolbar/div[3]/a[3]")).click();
         sleep(1000);
         driver.findElement(By.xpath("//*[@id=\"mat-input-0\"]")).sendKeys("pepe");
@@ -25,6 +30,7 @@ public class SeleniumWebDriverConfig {
     }
 
     public void logInAsTutor() throws InterruptedException {
+        sleep(1000);
         driver.findElement(By.xpath("/html/body/app-root/div/mat-toolbar/div[3]/a[3]")).click();
         sleep(1000);
         driver.findElement(By.xpath("//*[@id=\"mat-input-0\"]")).sendKeys("roberto");
