@@ -60,14 +60,34 @@ public class TuTorLog {
         myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-toolbar/div[3]/a[2]")).click();
         sleep(2000);
         myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-register/app-register-role/div/div[2]/mat-card/mat-card-actions/button")).click();
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-2\"]")).sendKeys("Roberto");
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-3\"]")).sendKeys("payasito123");
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-4\"]")).sendKeys("robertototo@gmail.com");
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-select-0\"]/div/div[2]/div")).click();
+        sleep(500);
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-option-1\"]/span")).click();
+        sleep(500);
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-select-2\"]/div/div[2]/div")).click();
+        sleep(500);
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-option-6\"]/span")).click();
+        sleep(500);
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-5\"]")).sendKeys("Hey there!");
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-checkbox-1\"]/label/span[1]")).click();
+
+
     }
 
     @When("de click a registrar")
-    public void deClickARegistrar() {
+    public void deClickARegistrar() throws InterruptedException {
+        sleep(3000);
+        myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-register/app-student-register/div/form/mat-card/mat-card-actions/button[2]")).click();
+
     }
 
     @Then("el sistema muestra un snackbar que indica que se registró de forma satisfactioria")
-    public void elSistemaMuestraUnSnackbarQueIndicaQueSeRegistróDeFormaSatisfactioria() {
+    public void elSistemaMuestraUnSnackbarQueIndicaQueSeRegistróDeFormaSatisfactioria() throws InterruptedException {
+        sleep(2000);
+        myDriver.closeWindow();
 
     }
 
