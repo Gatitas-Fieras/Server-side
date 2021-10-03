@@ -16,6 +16,7 @@ public class TuTorLog {
         myDriver = new SeleniumWebDriverConfig();
     }
 
+
     @Given("que un nuevo profesor desee registrarse")
     public void queUnNuevoProfesorDeseeRegistrarse() {
 
@@ -29,19 +30,29 @@ public class TuTorLog {
     }
 
     @Then("la aplicación muestra el formulario de registro donde se llenarán datos personales como nombre, apellido, fecha de nacimiento, DNI, dirección, teléfono y email, adicional a esto se pide un comprobante de estudios")
-    public void laAplicaciónMuestraElFormularioDeRegistroDondeSeLlenaránDatosPersonalesComoNombreApellidoFechaDeNacimientoDNIDirecciónTeléfonoYEmailAdicionalAEstoSePideUnComprobanteDeEstudios() {
+    public void laAplicaciónMuestraElFormularioDeRegistroDondeSeLlenaránDatosPersonalesComoNombreApellidoFechaDeNacimientoDNIDirecciónTeléfonoYEmailAdicionalAEstoSePideUnComprobanteDeEstudios() throws InterruptedException {
+        sleep(3000);
+        myDriver.closeWindow();
     }
 
     @Given("que un profesor nuevo se encuentra en el formulario de registro")
-    public void queUnProfesorNuevoSeEncuentraEnElFormularioDeRegistro() {
+    public void queUnProfesorNuevoSeEncuentraEnElFormularioDeRegistro() throws InterruptedException {
+        myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-toolbar/div[3]/a[2]")).click();
+        sleep(2000);
+        myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-register/app-register-role/div/div[2]/mat-card/mat-card-actions/button")).click();
+
     }
 
     @When("llena algún campo incorrectamente debido al formato del campo")
     public void llenaAlgúnCampoIncorrectamenteDebidoAlFormatoDelCampo() {
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-2\"]")).sendKeys("sdfsafsa");
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-4\"]")).sendKeys("sdsdsasafcxzcz");
     }
 
     @Then("el sistema muestra un mensaje de error, detallando cual fue el problema")
-    public void elSistemaMuestraUnMensajeDeErrorDetallandoCualFueElProblema() {
+    public void elSistemaMuestraUnMensajeDeErrorDetallandoCualFueElProblema() throws InterruptedException {
+        sleep(2000);
+        myDriver.closeWindow();
     }
 
     @Given("que un profesor ha llenado incorrectamente el formulario de registro")
@@ -65,7 +76,5 @@ public class TuTorLog {
     public void elSistemaMuestraElFormularioDePostulaciónElCualEsUnProcesoNecesarioParaAccederASusFunciones() {
     }
 
-    @When("de click a siguiente")
-    public void deClickASiguiente() {
-    }
+
 }
