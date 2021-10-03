@@ -72,10 +72,22 @@ public class TutorLogs {
                 ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mat-input-1\"]")));
         myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-1\"]")).sendKeys("pinocho");
 
-        WebDriverWait secondWait = new WebDriverWait(myDriver.driver, 10);
+       /* WebDriverWait secondWait = new WebDriverWait(myDriver.driver, 10);
         WebElement username = secondWait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mat-input-6\"]")));
-        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-6\"]")).sendKeys("robertito");
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-6\"]")).sendKeys("robertito");*/
+
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-2\"]")).click();
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-select-0\"]/div/div[2]")).click();
+        sleep(1000);
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-option-0\"]/span")).click();
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-select-2\"]/div/div[2]")).click();
+        sleep(1000);
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-option-3\"]/span")).click();
+        sleep(1000);
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-3\"]")).sendKeys("Hey there!");
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-checkbox-1\"]/label/span[1]")).click();
+        sleep(2000);
       /*  myDriver.driver.findElement(By.id("tutor_username_2021")).sendKeys("Roberto");
         myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-5\"]")).sendKeys("payasito123");
         myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-6\"]")).sendKeys("robertototo@gmail.com");
