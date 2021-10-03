@@ -56,8 +56,10 @@ public class TuTorLog {
     }
 
     @Given("que un profesor ha llenado correctamente el formulario de registro")
-    public void queUnProfesorHaLlenadoCorrectamenteElFormularioDeRegistro() {
-
+    public void queUnProfesorHaLlenadoCorrectamenteElFormularioDeRegistro() throws InterruptedException {
+        myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-toolbar/div[3]/a[2]")).click();
+        sleep(2000);
+        myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-register/app-register-role/div/div[2]/mat-card/mat-card-actions/button")).click();
     }
 
     @When("de click a registrar")
