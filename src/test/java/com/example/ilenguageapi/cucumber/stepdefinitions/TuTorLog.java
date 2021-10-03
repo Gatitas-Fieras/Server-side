@@ -49,31 +49,24 @@ public class TuTorLog {
         myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-4\"]")).sendKeys("sdsdsasafcxzcz");
     }
 
-    @Then("el sistema muestra un mensaje de error, detallando cual fue el problema")
-    public void elSistemaMuestraUnMensajeDeErrorDetallandoCualFueElProblema() throws InterruptedException {
+    @Then("el sistema no habilitará el boton de registro")
+    public void elSistemaNoHabilitaráElBotonDeRegistro() throws InterruptedException {
         sleep(2000);
         myDriver.closeWindow();
     }
 
-    @Given("que un profesor ha llenado incorrectamente el formulario de registro")
-    public void queUnProfesorHaLlenadoIncorrectamenteElFormularioDeRegistro() {
-        
-    }
-
-    @When("de click en siguiente")
-    public void deClickEnSiguiente() {
-    }
-
-    @Then("el sistema muestra un mensaje de error indicando que un campo ha sido llenado incorrectamente")
-    public void elSistemaMuestraUnMensajeDeErrorIndicandoQueUnCampoHaSidoLlenadoIncorrectamente() {
-    }
-
     @Given("que un profesor ha llenado correctamente el formulario de registro")
     public void queUnProfesorHaLlenadoCorrectamenteElFormularioDeRegistro() {
+
     }
 
-    @Then("el sistema muestra el formulario de postulación el cual es un proceso necesario para acceder a sus funciones.")
-    public void elSistemaMuestraElFormularioDePostulaciónElCualEsUnProcesoNecesarioParaAccederASusFunciones() {
+    @When("de click a registrar")
+    public void deClickARegistrar() {
+    }
+
+    @Then("el sistema muestra un snackbar que indica que se registró de forma satisfactioria")
+    public void elSistemaMuestraUnSnackbarQueIndicaQueSeRegistróDeFormaSatisfactioria() {
+
     }
 
 

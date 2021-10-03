@@ -7,10 +7,10 @@ Feature: Tutor quiere iniciar en ILanguage
   Scenario  sdnsjdsad
     Given que un profesor nuevo se encuentra en el formulario de registro
     When llena algún campo incorrectamente debido al formato del campo
-    Then el sistema muestra un mensaje de error, detallando cual fue el problema
+    Then el sistema no habilitará el boton de registro
 
 
   Scenario fddsadadsa
     Given que un profesor ha llenado correctamente el formulario de registro
-    When de click a siguiente
-    Then el sistema muestra el formulario de postulación el cual es un proceso necesario para acceder a sus funciones.
+    When de click a registrar
+    Then el sistema muestra un snackbar que indica que se registró de forma satisfactioria
