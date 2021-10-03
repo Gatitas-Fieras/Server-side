@@ -5,6 +5,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static java.lang.Thread.sleep;
 
@@ -43,8 +46,10 @@ public class EditProfile {
 
     @When("cuando le da clic a la opción de editar mi perfil")
     public void cuandoLeDaClicALaOpciónDeEditarMiPerfil() throws InterruptedException {
-        sleep(2000);
-        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-button-toggle-0-button\"]/span")).click();
+        WebDriverWait wait = new WebDriverWait(myDriver.driver, 10);
+        WebElement btnEditProfile = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("btn_2021_editProfile")));
+        btnEditProfile.click();
     }
 
     @Then("el sistema le permite editar los campos como datos personales")
@@ -57,7 +62,10 @@ public class EditProfile {
 
     @When("cuando le da clic a la opción de editar mi perfil e ingrese datos erroneos")
     public void cuandoLeDaClicALaOpciónDeEditarMiPerfilEIngreseDatosErroneos() throws InterruptedException {
-        sleep(2000);
+        WebDriverWait wait = new WebDriverWait(myDriver.driver, 10);
+        WebElement btnEditProfile = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("btn_2021_editProfile")));
+        btnEditProfile.click();
         myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-profile/mat-drawer-container/mat-drawer-content/div/mat-card/mat-card-content/mat-card-actions/input")).sendKeys("");
 
     }
