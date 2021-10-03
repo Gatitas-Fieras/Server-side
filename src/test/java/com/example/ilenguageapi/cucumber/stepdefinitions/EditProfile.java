@@ -42,17 +42,26 @@ public class EditProfile {
 
     @When("cuando le da clic a la opción de editar mi perfil")
     public void cuandoLeDaClicALaOpciónDeEditarMiPerfil() {
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-button-toggle-2-button\"]/span")).click();
     }
 
     @Then("el sistema le permite editar los campos como datos personales")
-    public void elSistemaLePermiteEditarLosCamposComoDatosPersonales() {
+    public void elSistemaLePermiteEditarLosCamposComoDatosPersonales() throws InterruptedException {
+        String strDescription = " Hey, my name is Roberto and i'm so happy of being here with you!";
+        myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-profile/mat-drawer-container/mat-drawer-content/div/mat-card/mat-card-content/mat-card-actions/input")).sendKeys(strDescription);
+        sleep(2000);
+        myDriver.closeWindow();
     }
 
     @When("cuando le da clic a la opción de editar mi perfil e ingrese datos erroneos")
     public void cuandoLeDaClicALaOpciónDeEditarMiPerfilEIngreseDatosErroneos() {
+        myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-profile/mat-drawer-container/mat-drawer-content/div/mat-card/mat-card-content/mat-card-actions/input")).sendKeys("");
+
     }
 
     @Then("el sistema no podrá realizar la modificacion")
-    public void elSistemaNoPodráRealizarLaModificacion() {
+    public void elSistemaNoPodráRealizarLaModificacion() throws InterruptedException {
+        sleep(2000);
+        myDriver.closeWindow();
     }
 }
