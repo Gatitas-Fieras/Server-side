@@ -77,7 +77,9 @@ public class TutorLogs {
                 ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"mat-input-6\"]")));
         myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-6\"]")).sendKeys("robertito");*/
 
-        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-2\"]")).click();
+
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-0\"]")).sendKeys("tu robertito lokito");
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-input-2\"]")).sendKeys("robertotototo@gmail.com");
         myDriver.driver.findElement(By.xpath("//*[@id=\"mat-select-0\"]/div/div[2]")).click();
         sleep(1000);
         myDriver.driver.findElement(By.xpath("//*[@id=\"mat-option-0\"]/span")).click();
