@@ -23,7 +23,8 @@ public class EditProfile {
     }
 
     @When("le dé clic a la sección de mi perfil")
-    public void leDéClicALaSecciónDeMiPerfil() {
+    public void leDéClicALaSecciónDeMiPerfil() throws InterruptedException {
+        sleep(2000);
         myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-session/mat-drawer-container/mat-drawer/div/button[2]")).click();
     }
 
@@ -41,8 +42,9 @@ public class EditProfile {
     }
 
     @When("cuando le da clic a la opción de editar mi perfil")
-    public void cuandoLeDaClicALaOpciónDeEditarMiPerfil() {
-        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-button-toggle-2-button\"]/span")).click();
+    public void cuandoLeDaClicALaOpciónDeEditarMiPerfil() throws InterruptedException {
+        sleep(2000);
+        myDriver.driver.findElement(By.xpath("//*[@id=\"mat-button-toggle-0-button\"]/span")).click();
     }
 
     @Then("el sistema le permite editar los campos como datos personales")
@@ -54,7 +56,8 @@ public class EditProfile {
     }
 
     @When("cuando le da clic a la opción de editar mi perfil e ingrese datos erroneos")
-    public void cuandoLeDaClicALaOpciónDeEditarMiPerfilEIngreseDatosErroneos() {
+    public void cuandoLeDaClicALaOpciónDeEditarMiPerfilEIngreseDatosErroneos() throws InterruptedException {
+        sleep(2000);
         myDriver.driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-profile/mat-drawer-container/mat-drawer-content/div/mat-card/mat-card-content/mat-card-actions/input")).sendKeys("");
 
     }
