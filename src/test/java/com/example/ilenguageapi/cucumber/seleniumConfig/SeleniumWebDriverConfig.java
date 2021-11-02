@@ -9,10 +9,10 @@ import static java.lang.Thread.sleep;
 public class SeleniumWebDriverConfig {
     public WebDriver driver;
     public static String API_URL = "http://localhost:4200/home";
-    public static String PATH_DRIVER = System.getProperty("user.dir") + "\\driver\\windows\\chromedriver.exe";
+    public static String PATH_DRIVER = System.getProperty("user.dir") + "\\driver\\windows\\chromedriver_94.exe";
 
     public SeleniumWebDriverConfig() {
-        String PATH_DRIVER = System.getProperty("user.dir") + "\\driver\\windows\\chromedriver.exe";
+        String PATH_DRIVER = System.getProperty("user.dir") + "\\driver\\windows\\chromedriver_94.exe";
         System.setProperty("webdriver.chrome.driver", PATH_DRIVER);
         driver = new ChromeDriver();
         driver.get(API_URL);
