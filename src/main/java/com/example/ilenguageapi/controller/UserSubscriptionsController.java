@@ -35,7 +35,7 @@ public class UserSubscriptionsController {
     }
 
     @Operation(summary="Assing user to suscription", description="Assing user to  suscription", tags = {"user subscriptions"})
-    @PostMapping("/users/{userId}/subscription/{subscriptionId}")
+    @PostMapping("/users/{userId}/subscriptions/{subscriptionId}")
     public UserSubscription assingUserToSubscription(@RequestParam(name="userId") int userId, @RequestParam(name="subscriptionId") int subscriptionId){
         return userSubscriptionService.assignUserSubscription(userId,subscriptionId);
     }
@@ -52,7 +52,7 @@ public class UserSubscriptionsController {
             @ApiResponse(responseCode = "200", description="All subscriptions returned", content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "404", description="Subscription Not Found", content = @Content(mediaType = "application/json"))
     })
-    @RequestMapping(value ="/user/{userId}/subscriptions", method = RequestMethod.GET)
+    @RequestMapping(value ="/users/{userId}/subscriptions", method = RequestMethod.GET)
     public Page<UserSubscription> getUserSubscriptionByUserId(@PathVariable(name="userId") int userId,Pageable pageable){
         List<UserSubscription> userSubscriptionResourceList = new ArrayList<>(userSubscriptionService.getByUSerId(pageable, userId)
                 .getContent());
